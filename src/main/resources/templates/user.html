@@ -17,8 +17,7 @@
         <span class="align-middle">with roles:</span>
         <span class="align-middle" th:block th:each="role : ${user.getRoles()}">
                                             <span th:text="${role.name}"/>
-
-            </span>
+        </span>
     </div>
     <a></a>
     <form th:action="@{/logout}" method="post">

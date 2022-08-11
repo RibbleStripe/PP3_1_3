@@ -30,17 +30,6 @@ public class AdminController {
         return "admin";
     }
 
-    @GetMapping("/{id}/edit")
-    public String editUser(@PathVariable(value = "id", required = false) Long id, Model model) {
-        User user = userService.getUserById(id);
-        if (user == null) {
-            return "redirect:/admin";
-        }
-        model.addAttribute("user", user);
-        model.addAttribute("roles", roleService.getAllRoles());
-        return "edit";
-    }
-
     @PatchMapping("/{id}/update")
     public String updateUser(@PathVariable(value = "id", required = false) Long id, @ModelAttribute("user") User user,
                              @RequestParam(value = "nameRole", required = false) String nameRole) {
