@@ -48,9 +48,9 @@ public class AdminController {
 
     @GetMapping("/create")
     public String createPage(@AuthenticationPrincipal UserDetails userDetails,Model model) {
-        model.addAttribute("user", userService.getUserByName(userDetails.getUsername()));
         model.addAttribute("user", new User());
         model.addAttribute("roleName", roleService.getAllRoles());
+        model.addAttribute("user", userService.getUserByName(userDetails.getUsername()));
         return "create";
     }
 
